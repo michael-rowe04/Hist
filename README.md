@@ -1,1 +1,1 @@
-Uncrompess CSVs, then Compress whole repo and upload to Elatic bean in AWS. Will probably have to configure load balancer.
+Uncrompess CSVs, then Compress whole repo and upload to Elatic bean in AWS. Will probably have to configure load balancer. Update.py is not necessary for standing up website. This is because CSVs are not dynamically updated so will need to use that to update them.
