@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+  <head><script src="{{ url_for('static', filename='js/color-modes.js') }}"></script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.118.2">
+    <title>HistFinance</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/H2.png')}}">
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/product/">
+
+    
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .b-example-divider {
+        width: 100%;
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+      }
+
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+      }
+
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .btn-bd-primary {
+        --bd-violet-bg: #712cf9;
+        --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+
+        --bs-btn-font-weight: 600;
+        --bs-btn-color: var(--bs-white);
+        --bs-btn-bg: var(--bd-violet-bg);
+        --bs-btn-border-color: var(--bd-violet-bg);
+        --bs-btn-hover-color: var(--bs-white);
+        --bs-btn-hover-bg: #6528e0;
+        --bs-btn-hover-border-color: #6528e0;
+        --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+        --bs-btn-active-color: var(--bs-btn-hover-color);
+        --bs-btn-active-bg: #5a23c8;
+        --bs-btn-active-border-color: #5a23c8;
+      }
+
+      .bd-mode-toggle {
+        z-index: 1500;
+      }
+
+      .bd-mode-toggle .dropdown-menu .active .bi {
+        display: block !important;
+      }
+
+      .custom-bg-color {
+        background-color: #0b89bf;
+    }
+
+    </style>
+
+    
+    <!-- Custom styles for this template -->
+    <link href="{{ url_for('static', filename='css/product.css')}}" rel="stylesheet">
+  </head>
+  <body>
+<svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+  <symbol id="aperture" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="10"/>
+    <path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"/>
+  </symbol>
+  <symbol id="cart" viewBox="0 0 16 16">
+    <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+  </symbol>
+  <symbol id="chevron-right" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+  </symbol>
+</svg>
+
+<nav class="navbar navbar-expand-md bg-dark sticky-top border-bottom" data-bs-theme="dark">
+  <div class="container">
+    <a class="navbar-brand d-md-none" href="#">
+      <svg class="bi" width="24" height="24">
+        <image xlink:href="{{ url_for('static', filename='img/H2.png')}}" width="24" height="24" />
+      </svg>
+      HistFinance
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" aria-controls="offcanvas" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasLabel">HistFinance </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav flex-grow-1 justify-content-between">
+          <li class="nav-item"><a class="nav-link" href="#">
+        <svg class="bi" width="24" height="24">
+          <image xlink:href="{{ url_for('static', filename='img/H2.png')}}" width="24" height="24" />
+        </svg>           
+      </a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="/historicaldata">Historical Analysis</a></li>
+          <li class="nav-item"><a class="nav-link" href="/stockcomparison">Stock Comparison</a></li>
+          <li class="nav-item"><a class="nav-link" href="/newsanalysis">News Analysis</a></li>
+          <li class="nav-item"><a class="nav-link" href="/candlestickdetect">Candle Stick Detection</a></li>
+          <li class="nav-item"><a class="nav-link" href="/modelbuilder">Model Depot</a></li>
+
+         </a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="position-relative overflow-hidden p-1 p-md-3 m-md-3 text-center bg-body-tertiary">
+    <div class="col-md-6 p-lg-5 my-5 float-md-start">
+      <h1 class="display-6 fw-bold">Free Historical Stock Analysis</h1>
+      <h3 class="fw-normal text-muted mb-3">Win your next investment with Hist Finance</h3>
+      <p class="fw-normal text-muted mb-3">
+        Explore our unique tools for seamless stock data visualization and analysis. 
+        Compare top stocks, track news impact, and detect candle stick patterns to inform your investments. 
+        Dive into daily updated predictive models for strategic positioning.
+         </p>
+         <h4 class="fw-normal text-muted mb-3">No Sign Up Required!</h4>
+    </div>
+    <div class="col-md-6 text-center ms-auto float-md-end">
+      <img src="{{ url_for('static', filename='img/H&HistShadow.png') }}" class="img-fluid" alt="Your Image" height = "270"  width = "270">
+  </div>
+
+  </div>
+
+  <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
+    <div class="custom-bg-color me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+      <div class="my-3 py-3">
+        <h2 class="display-5">Historical Analysis</h2>
+        <p class="lead"><span class = "small">Choose your time frame. Choose your interval.
+          Our platform provides robust data visualization and downloadable access for seamless project integration.</span></p>
+      </div>
+      <div class="d-flex flex-column align-items-center" style = "margin-top: -45px">
+        <img src="{{ url_for('static', filename='img/whiteplot.png') }}" alt="Image 1" style="width: 60%; height: auto; margin-bottom: 10px;">
+        <div class="d-flex justify-content-between" style="width: 100%;">
+          <img src="{{url_for('static',filename = 'img/whiteplot2.png')}}" alt="Image 2" style="width: 48%; height: auto; margin-bottom: auto">
+          <img src="{{url_for('static',filename = 'img/whiteplot3.png')}}" alt="Image 3" style="width: 48%; height: auto; margin-bottom:auto">
+        </div>
+      </div>
+
+<!--       <div class="bg-body-tertiary shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>-->    
+    </div>
+    <div class="bg-body-tertiary me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+      <div class="my-3 p-3">
+        <h2 class="display-5">Stock Comparison</h2>
+        <p class="lead"><span class = "small">Analyze the performance of stocks across global leading exchanges and indexes
+           to drive informed investment decisions and strategic portfolio management.</span></p>
+      </div>
+      <div class="d-flex flex-column align-items-center" style = "margin-top: -40px">
+        <img src="{{url_for('static',filename = 'img/barchart.png')}}" alt="Image 1" style="width: 65%; height: auto; margin-bottom: auto;">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
+    <div class="bg-body-tertiary me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+      <div class="my-3 p-3">
+        <h2 class="display-5">News Analysis</h2>
+        <p class="lead"><span class = "small">Curious about your next potential investment's visibility in the news? 
+          Our sentiment analysis reveals how companies' stocks fare post-publicity, 
+          along with insights on the article's source and attitude.</span></p>
+      </div>
+      <div class="d-flex flex-column align-items-center" style = "margin-top: -40px">
+        <img src="{{url_for('static',filename = 'img/wordcloud2.png')}}" alt="Image 1" style="width: 50%; height: fit-content; margin-bottom: auto;">
+        </div>   
+      
+    </div>
+    <div class="custom-bg-color me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+      <div class="my-3 py-3">
+        <h2 class="display-5">Candle Stick Detection</h2>
+        <p class="lead"><span class = "small">Choose your timeframe and explore previous periods with similar candlestick patterns. 
+          Gain insights into how the stock has performed in these scenarios.</span></p>
+      </div>
+      <div class="d-flex flex-column align-items-center" style = "margin-top: -40px">
+        <img src="{{url_for('static',filename = 'img/candlestick-removebg.png')}}" alt="Image 1" style="width: 70%; height: fit-content; margin-bottom: auto;">
+        </div>       
+       </div>
+  </div>
+
+  <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
+    <div class="custom-bg-color me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+      <div class="my-3 p-3">
+        <h2 class="display-5">Model Depot</h2>
+        <p class="lead"><span class = "small"> Explore the predictive power of our time series models, 
+          spanning from LSTM's to Transformers. Harnessing the latest advancements in AI, Deep Learning, and Machine Learning, 
+          our models aim to forecast future stock prices. Download both untrained and trained models. 
+          Submit your own for a chance to be featured in our model depot!</span></p>
+      </div>
+      <div class="d-flex flex-column align-items-center" style = "margin-top: -70px">
+        <img src="{{url_for('static',filename = 'img/modeldepot.png')}}" alt="Image 1" style="width: 100%; height: max-content; margin-bottom: auto;">
+        </div>     
+       </div>
+    <div class="bg-body-tertiary me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden d-flex justify-content-center align-items-center">
+      <div class="my-3 py-3">
+        <h2 class="display-5">Reach Out!</h2>
+        <p class="lead"><span class = "small"> Please reach out if you have any ideas or want to contribute to our mission!
+          We are looking to reach a diverse range of traders, help in marketing and web development would be greatly appreciated!
+        </span></p>
+
+    </div>
+  </div>
+</main>
+<footer class="container py-5">
+  <div class="row">
+    <div class="col-12 col-md">
+        <svg class="bi" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="d-block mb-2" role="img" viewBox="0 0 24 24">
+          <image href="{{ url_for('static', filename='img/H2.png')}}" width="24" height="24" />
+        </svg>
+     <small class="d-block mb-3 text-body-secondary">&copy; 2024</small>
+    </div>
+    <div class="col-6 col-md">
+      <h5>Contact Us</h5>
+      <ul class="list-unstyled text-small">
+        <li>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16" style="color: #0b89bf;">
+          <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z"/>
+        </svg>
+        <a class="link-secondary text-decoration-none" href="mailto:histfinance@protonmail.com">HistFinance@protonmail.com</a>
+      </li>
+        <li>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter-x" viewBox="0 0 16 16">
+            <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/>
+          </svg>
+          <a class="link-secondary text-decoration-none" href="https://x.com/histfinance">@HistFinance</a></li>
+      </ul>
+    </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    </body>
+</html>

@@ -1,0 +1,710 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+  <head><script src="{{ url_for('static', filename='js/color-modes.js') }}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.118.2">
+    <title>HistFinance · Stock Comparison</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/H2.png')}}">
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/product/">
+
+    
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .b-example-divider {
+        width: 100%;
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+      }
+
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+      }
+
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .btn-bd-primary {
+        --bd-violet-bg: #712cf9;
+        --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+
+        --bs-btn-font-weight: 600;
+        --bs-btn-color: var(--bs-white);
+        --bs-btn-bg: var(--bd-violet-bg);
+        --bs-btn-border-color: var(--bd-violet-bg);
+        --bs-btn-hover-color: var(--bs-white);
+        --bs-btn-hover-bg: #6528e0;
+        --bs-btn-hover-border-color: #6528e0;
+        --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+        --bs-btn-active-color: var(--bs-btn-hover-color);
+        --bs-btn-active-bg: #5a23c8;
+        --bs-btn-active-border-color: #5a23c8;
+      }
+
+      .bd-mode-toggle {
+        z-index: 1500;
+      }
+
+      .bd-mode-toggle .dropdown-menu .active .bi {
+        display: block !important;
+      }
+
+      .custom-bg-color {
+        background-color: #0b89bf;
+        border-color: #0b89bf;
+    }
+
+     .centered-content {
+      text-align: center;
+      margin-top: 50px; 
+    }
+
+    .small-text {
+      font-size: 14px; /* Adjust the font size as needed */
+      color: #888; /* Adjust the color to a lighter gray */
+}
+    option:hover::before {
+      transition-duration: 0.1s; /* Adjust the duration as needed */
+  }
+
+    </style>
+
+    
+    <!-- Custom styles for this template -->
+    <link href="{{ url_for('static', filename='css/product.css')}}" rel="stylesheet">
+  </head>
+  <body>
+      <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+        <symbol id="check2" viewBox="0 0 16 16">
+          <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+        </symbol>
+        <symbol id="circle-half" viewBox="0 0 16 16">
+          <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
+        </symbol>
+        <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+          <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+          <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
+        </symbol>
+        <symbol id="sun-fill" viewBox="0 0 16 16">
+          <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+        </symbol>
+      </svg>
+
+      <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+        <symbol id="aperture" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"/>
+        </symbol>
+        <symbol id="cart" viewBox="0 0 16 16">
+          <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+        </symbol>
+        <symbol id="chevron-right" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+        </symbol>
+      </svg>
+
+      <nav class="navbar navbar-expand-md bg-dark sticky-top border-bottom" data-bs-theme="dark">
+        <div class="container">
+          <a class="navbar-brand d-md-none" href="#">
+            <svg class="bi" width="24" height="24">
+              <image xlink:href="{{ url_for('static', filename='img/H2.png')}}" width="24" height="24" />
+            </svg>
+            HistFinance
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" aria-controls="offcanvas" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="offcanvasLabel">HistFinance </h5>
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav flex-grow-1 justify-content-between">
+                <li class="nav-item"><a class="nav-link" href="#">
+              <svg class="bi" width="24" height="24">
+                <image xlink:href="{{ url_for('static', filename='img/H2.png')}}" width="24" height="24" />
+              </svg>           
+            </a></li>
+                <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="/historicaldata">Historical Analysis</a></li>
+                <li class="nav-item"><a class="nav-link" href="/stockcomparison">Stock Comparison</a></li>
+                <li class="nav-item"><a class="nav-link" href="/newsanalysis">News Analysis</a></li>
+                <li class="nav-item"><a class="nav-link" href="/candlestickdetect">Candle Stick Detection</a></li>
+                <li class="nav-item"><a class="nav-link" href="/modelbuilder">Model Depot</a></li>
+      
+               </a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+        <!-- Centered header -->
+        <form id = 'myForm' action="/submit_bar_form" method="POST">
+<!--         <form action="/submit_form" method="POST">
+ -->        <div class="container">
+            <div class="row">
+            <div class="col-md-12 centered-content">
+              <h1>Stock Comparison</h1>
+              <p class="lead">Compare stocks performances from indexes over specific time periods!</p>
+              <div class="explanation">
+                <p class = "small-text">Enter a ticker symbol, select what kind of data from that stock you would like to compare, and select the interval type. Once an interval type is selcted you will be prompted with options 
+                  on the time period, the frequency, and how far back you would like to compare the data from. Then you can select filters on what kind of data you would like to compare and how many results you want to see. </p>
+                  <div class="explanation2">
+                    <p class = "small-text">
+                  The interval type determines the timeframe of data displayed—choose 'Year' for yearly data, 'Week' for weekly data, etc.
+                  </p>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+<!-- First Inputs: Ticker, Stock Data (Close,Volume, etc.), Interval Type (Year, Quarter, Month, Weekday, Day) -->
+
+        
+        <div class="container col-md-12 centered-content" style="margin-top: 10px;">
+          <div class="input-section">
+            <label for="category">Stock Data:</label>
+            <select id="category" name="category" class="mb-2 col-sm">
+              <option value="">Select Category</option>
+              <option value="S&P">S&P</option>
+              <option value="Russell2000">Russell2000</option>
+              <option value="NASDAQ100">NASDAQ100</option>
+              <option value="S&Penergy">S&PEnergy</option>
+              <option value="S&PComSvcs">S&PComSvcs</option>
+              <option value="S&PConsDisc">S&PConsDisc</option>
+              <option value="S&Pfinancial">S&PFinancial</option>
+              <option value="S&PInfoTech">S&PInfoTech</option>
+              <option value="S&Putilities">S&PUtilities</option>
+              <option value="S&Pindustrials">S&PIndustrials</option>
+              <option value="S&PHealthCare">S&PHealthCare</option>
+              <option value="S&PConsStap">S&PConsStap</option>
+              <option value="S&PRealEstate">S&PRealEstate</option>
+              <option value="S&PMaterials">S&PMaterials</option>
+            </select>&nbsp;&nbsp;&nbsp;&nbsp;
+            <label for="datatype">Stock Data:</label>
+            <select id="datatype" name="datatype">
+              <option value="">Select Data</option>
+              <option value="Close">Close</option>
+              <option value="Open">Open</option>
+              <option value="Volume">Volume</option>
+              <option value="High">High</option>
+              <option value="Low">Low</option>
+            </select>&nbsp;&nbsp;&nbsp;&nbsp;
+        
+            <label for="interval">Interval Type:</label>
+            <select id="interval" name="interval">
+              <option value="">Select Interval</option>
+              <option value="year">Year</option>
+              <option value="quarter">Quarter</option>
+              <option value="month">Month</option>
+              <option value="week">Week</option>
+              <option value="day">Day</option>
+            </select>&nbsp;&nbsp;&nbsp;&nbsp;
+          </div>
+        </div>
+
+       
+<!-- Hidden Input Sections Start Here -->
+<!-- These input sections have repeats for frequency, yearInput, and intervalsBack -->
+<!-- Also the day and week intervals have repeats for start and end -->
+
+
+<!-- If Year Interval is chosen this will be displayed -->
+<!-- frequency -> frequencyYear, yearInput -> yearInputYear, intervalsBack -> intervalsBackYear -->
+
+<div id="yearInterval" style="display: none; margin-top: 20px;" class="col-md-12 centered-content">
+  <div class="explanation2">
+    <p class = "small-text">
+  This will give you the yearly data for however many years back you would like to see it from.
+  </p>
+  </div>
+    <label for="yearInputYear">Year:</label>
+    <input type="number" id="yearInputYear" name="yearInputYear" placeholder="Enter Year" min = "1940">&nbsp;&nbsp;&nbsp;&nbsp;
+    <label for="frequencyYear">Frequency:</label>
+    <select id="frequencyYear" name="frequencyYear">
+      <option value="">Select Method</option>
+        <option value="yearly">Yearly</option>
+    </select>&nbsp;&nbsp;&nbsp;&nbsp;
+    <label for="intervalsBackYear">Intervals Back:</label>
+    <input type="number" id="intervalsBackYear" name="intervalsBackYear" min = "1" placeholder="1">
+    
+</div>
+
+<!-- If Quarter interval is chosen this will be displayed -->
+<!-- frequency -> frequencyQuarter, yearInput -> yearInputQuarter, intervalsBack -> intervalsBackQuarter -->
+
+<div id="quarterInterval" style="display: none; margin-top: 20px;" class="col-md-12 centered-content">
+  <div class="explanation2 row col-md-8 offset-md-2">
+    <p class = "small-text">
+  This will give you the quarterly data for either however many years back or quarters back you would like to compare it from.
+  For example if you would like to see Q3 2023, depending on your frequency:
+  <p class="small-text">
+    Yearly: Retrieves Q3 2023 and Q3 of each previous year
+  </p>
+  <p class="small-text">
+    Quarterly: Retrieves Q3 2023, Q2 2023, Q1 2023...
+  </p>
+  </div>
+  <label for="quarterInput">Quarter:</label>
+  <select id="quarterInput" name="quarterInput">
+      <option value="0">Q1</option>
+      <option value="1">Q2</option>
+      <option value="2">Q3</option>
+      <option value="3">Q4</option>
+  </select>&nbsp;&nbsp;&nbsp;&nbsp;
+  <label for="yearInputQuarter">Year:</label>
+  <input type="number" id="yearInputQuarter" name="yearInputQuarter" placeholder="Enter Year">&nbsp;&nbsp;&nbsp;&nbsp;
+  <label for="frequencyQuarter">Frequency:</label>
+  <select id="frequencyQuarter" name="frequencyQuarter">
+    <option value="">Select Method</option>
+      <option value="yearly">Yearly</option>
+      <option value="quarterly">Quaterly</option>
+  </select>&nbsp;&nbsp;&nbsp;&nbsp;
+  <label for="intervalsBackQuarter">Intervals Back:</label>
+  <input type="number" id="intervalsBackQuarter" name="intervalsBackQuarter" min = "1" placeholder="1">
+</div>
+
+<!-- If Month interval is chosen this will be displayed -->
+<!-- frequency -> frequencyMonth, yearInput -> yearInputMonth, intervalsBack -> intervalsBackMonth -->
+
+<div id="monthInterval" style="display: none; margin-top: 20px;" class="col-md-12 centered-content">
+  <div class="explanation2 row col-md-8 offset-md-2">
+    <p class = "small-text">
+      Suppose you choose December 2023. Depending on your frequency:
+    </p>
+    <p class="small-text">
+      Yearly: Retrieves full months data for December 2023, December 2022, December 2021...
+    </p>
+    <p class="small-text">
+      Quarterly: Retrieves data for December 2023 and for the third month of each previous quarter since December is the 3rd month of Q4
+    </p>
+    <p class="small-text">
+      Monthly: Retrieves data for December 2023, November 2023, October 2023...
+    </p>
+  </div>
+  <label for="monthInput">Month:</label>
+    <select id="monthInput" name="monthInput">
+        <option value="1">January</option>
+        <option value="2">February</option>
+        <option value="3">March</option>
+        <option value="4">April</option>
+        <option value="5">May</option>
+        <option value="6">June</option>
+        <option value="7">July</option>
+        <option value="8">August</option>
+        <option value="9">September</option>
+        <option value="10">October</option>
+        <option value="11">November</option>
+        <option value="12">December</option>
+  </select>&nbsp;&nbsp;&nbsp;&nbsp;
+  <label for="yearInputMonth">Year:</label>
+  <input type="number" id="yearInputMonth" name="yearInputMonth" placeholder="Enter Year">&nbsp;&nbsp;&nbsp;&nbsp;
+  <label for="frequencyMonth">Frequency:</label>
+  <select id="frequencyMonth" name="frequencyMonth">
+    <option value="">Select Method</option>
+      <option value="yearly">Yearly</option>
+      <option value="quarterly">Quaterly</option>
+      <option value="monthly">Monthly</option>
+  </select>&nbsp;&nbsp;&nbsp;&nbsp;
+  <label for="intervalsBackMonth">Intervals Back:</label>
+  <input type="number" id="intervalsBackMonth" name="intervalsBackMonth" min = "1" placeholder="1">
+</div>
+
+<!-- If Day interval is chosen this will be displayed -->
+<!-- frequency -> frequencyDay, intervalsBack -> intervalsBackDay, startDateInput -> startDateInputDay, endDateInput -> endDateInputDay -->
+
+<div id="dayInterval" style="display: none; margin-top: 20px;" class="col-md-12 centered-content">
+  <div class="explanation2 row col-md-8 offset-md-2">
+    <p class = "small-text">
+     This method is based off of the number day i.e. "1,2,3,...,31".
+     For example if your interval is from 1/8/2024 - 1/19/2024, depending on your frequency:
+    </p>
+    <p class="small-text">
+      Yearly: Retrieves Jan 8th to Jan 19th for each year
+    </p>
+    <p class="small-text">
+      Quarterly: Retrieves the 8th - 19th of the first month in each previous quarter since January is the first month of Q1
+    </p>
+    <p class="small-text">
+      Monthly: Retrieves the 8th - 19th of each previous month
+    </p>
+  </div>
+  <label for="startDateInputDay">Start Date:</label>
+  <input type="date" id="startDateInputDay" name="startDateInputDay">&nbsp;&nbsp;&nbsp;&nbsp;
+  <label for="endDateInputDay">End Date:</label>
+  <input type="date" id="endDateInputDay" name="endDateInputDay">&nbsp;&nbsp;&nbsp;&nbsp;
+  <label for="frequencyDay">Frequency:</label>
+  <select id="frequencyDay" name="frequencyDay">
+    <option value="">Select Method</option>
+    <option value="yearly">Yearly</option>
+    <option value="quarterly">Quaterly</option>
+    <option value="monthly">Monthly</option>
+  </select>&nbsp;&nbsp;&nbsp;&nbsp;
+  <label for="intervalsBackDay">Intervals Back:</label>
+  <input type="number" id="intervalsBackDay" name="intervalsBackDay" min="1" placeholder="1">
+</div>
+
+<!-- If Week interval is chosen this will be displayed -->
+<!-- frequency -> frequencyWeek, intervalsBack -> intervalsBackWeek, startDateInput -> startDateInputWeek, endDateInput -> endDateInputWeek -->
+
+
+<div id="weekdayInterval" style="display: none; margin-top: 20px;" class="col-md-12 centered-content">
+  <div class="explanation2 row col-md-8 offset-md-2">
+    <p class = "small-text">
+     This method is based off of days of the week i.e. "Monday, Tusday, Wednesday, etc".
+     For example if your interval is from 1/8/2024 - 1/19/2024, which is the 2nd Monday of January to the 3rd Friday of January in 2024. 
+     Depending on your frequency:
+    </p>
+    <p class="small-text">
+      Yearly: Retrieves the 2nd Monday to the 3rd Friday of January for each year
+    </p>
+    <p class="small-text">
+      Quarterly: Retrieves the 2nd and 3rd week of each previous quarter (earnings season)
+    </p>
+    <p class="small-text">
+      Monthly: Retrieves the 2nd Monday to the 3rd Friday of each previous month
+    </p>
+    <p class="small-text">
+      "This method offers remarkable versatility, providing access to distinctive timeframes unavailable through other platforms, all at your fingertips!"
+    </p>
+  </div>
+  <label for="startDateInputWeek">Start Date:</label>
+  <input type="date" id="startDateInputWeek" name="startDateInputWeek">&nbsp;&nbsp;&nbsp;&nbsp;
+  <label for="endDateInputWeek">End Date:</label>
+  <input type="date" id="endDateInputWeek" name="endDateInputWeek">&nbsp;&nbsp;&nbsp;&nbsp;
+  <label for="frequencyWeek">Frequency:</label>
+  <select id="frequencyWeek" name="frequencyWeek">
+    <option value="">Select Method</option>
+    <option value="yearly">Yearly</option>
+    <option value="quarterly">Quaterly</option>
+    <option value="monthly">Monthly</option>
+  </select>&nbsp;&nbsp;&nbsp;&nbsp;
+  <label for="intervalsBackWeek">Intervals Back:</label>
+  <input type="number" id="intervalsBackWeek" name="intervalsBackWeek" min="1" placeholder="1">
+</div>
+
+<!-- This will have the div for the new bar chart inputs -->
+
+
+<div id = "barInputs" class="container col-md-12 centered-content" style="display: none; margin-top: 10px;">
+  <div class="input-section">
+    <p class = "small-text">
+      Choose the index you would like to compare, on what statistic you want to see, whether you would like to see the biggest winners or losers, and how many results you want returned.
+    </p>
+
+    <label for="stat">Statistic:</label>
+    <select id="stat" name="stat" class="mb-2 col-sm">
+      <option value="">Select Statistic</option>
+      <option value="Avg_pct_change">Avg Pct Change</option>
+      <option value="Avg_pos_pct_change">Avg Pos Pct Change</option>
+      <option value="Avg_neg_pct_change">Avg Neg Pct Change</option>
+      <option value="Avg_change">Avg Change</option>
+      <option value="Avg_pos_change">Avg Pos Change</option>
+      <option value="Avg_neg_change">Avg Neg Change</option>
+    </select>&nbsp;&nbsp;&nbsp;&nbsp;
+    <!-- <div class="form-group"> -->
+
+    <label for="largest_smallest">Biggest or Smallest Movers:</label>
+    <select id="largest_smallest" name="largest_smallest" class="mb-2 col-sm">
+      <option value="">Select Filter</option>
+      <option value='1'>Biggest</option>
+      <option value='0'>Smallest</option>
+    </select>&nbsp;&nbsp;&nbsp;&nbsp;
+
+    <label for="num_results">Number of Results:</label>
+    <input type="num_results" id="num_results" class="mb-2 col-sm" name="num_results" min="1" placeholder="1">
+  
+    <!--  --><!-- </div> -->
+  </div>
+</div>
+
+
+<div class="container mt-3">
+  <div class="row justify-content-end">
+    <div class="col-auto">
+        <button id = 'submitButton' type="submit" class="btn btn-primary custom-bg-color">Submit</button>
+    </div>
+  </div>
+</div>
+<!-- <button type="button">Submit</button>
+ -->
+<div id="theImage" class="text-center">
+  <!-- Initial content -->
+</div>
+
+</form>
+
+<div id = 'spinner' class="text-center" style="display: none;">
+<div class="spinner-border" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+</div>
+        
+
+<script>
+  const intervalSelect = document.getElementById('interval');
+  //const additionalInputDiv = document.getElementById('additionalInput');
+  //const additionalInputDiv2 = document.getElementById('additionalInput2');
+
+  // Event listener for changes in the dropdown selection
+  intervalSelect.addEventListener('change', function() {
+      const selectedValue = intervalSelect.value;
+
+      // Show or hide additional input boxes based on the selected option
+      if (selectedValue === 'year') {
+          yearInterval.style.display = 'block';
+          quarterInterval.style.display = 'none';
+          monthInterval.style.display = 'none';
+          dayInterval.style.display = 'none';
+          weekdayInterval.style.display = 'none';
+          //barInputs.style.display = 'block';
+      } else if (selectedValue === 'quarter') {
+          quarterInterval.style.display = 'block';
+          yearInterval.style.display = 'none';
+          monthInterval.style.display = 'none';
+          dayInterval.style.display = 'none';
+          weekdayInterval.style.display = 'none';
+          //barInputs.style.display = 'block';
+      } else if (selectedValue === 'month') {
+          quarterInterval.style.display = 'none';
+          yearInterval.style.display = 'none';
+          monthInterval.style.display = 'block';
+          dayInterval.style.display = 'none';
+          weekdayInterval.style.display = 'none';
+          //barInputs.style.display = 'block';
+      } else if (selectedValue === 'day') {
+          quarterInterval.style.display = 'none';
+          yearInterval.style.display = 'none';
+          monthInterval.style.display = 'none';
+          dayInterval.style.display = 'block';
+          weekdayInterval.style.display = 'none';
+          //barInputs.style.display = 'block';
+      } else if (selectedValue === 'week') {
+          quarterInterval.style.display = 'none';
+          yearInterval.style.display = 'none';
+          monthInterval.style.display = 'none';
+          dayInterval.style.display = 'none';
+          weekdayInterval.style.display = 'block';
+          //barInputs.style.display = 'block';
+      }else {
+          yearInterval.style.display = 'none';
+          quarterInterval.style.display = 'none';
+          monthInterval.style.display = 'none';
+          dayInterval.style.display = 'none';
+          weekdayInterval.style.display = 'none';
+          //barInputs.style.display = 'none';
+      }
+  });
+
+  $(document).ready(function(){
+
+    function toggleSubmitButton() {
+        var category = $('#category').val().trim();
+        var datatype = $('#datatype').val().trim();
+        var interval = $('#interval').val().trim();
+
+        if (category !== '' && datatype !== '' && interval !== '') {
+            if (interval === 'year') {
+                if ($('#yearInputYear').val().trim() !== '' && $('#frequencyYear').val().trim()!=='' && $('#intervalsBackYear').val().trim()!=='') {
+                  $('#barInputs').show();
+                  if($('#stat').val().trim()!=='' && $('#largest_smallest').val().trim()!=='' && $('#num_results').val().trim()!==''){
+                    $('#submitButton').show();
+                  }
+                  else{
+                    $('#submitButton').hide();
+                  }
+                  //$('#submitButton').show();
+
+                  //This code would make box red if wrong input but dont need it because number type prevents a string from being put in
+/*                   if (!isNaN($('#yearInputYear').val().trim()) && Number.isInteger(parseFloat($('#yearInputYear').val().trim()))){
+                    $('#yearInputYear').css('border-color', '')
+                    $('#submitButton').show();
+                  }
+                  else{
+                    $('#submitButton').hide();
+                    $('#yearInputYear').css('border-color', 'red'); // Set border color to red
+                    $('#yearErrorMessage').text("Please enter a valid Year.");
+
+                  } */
+                }
+                else{
+                  $('#barInputs').hide();
+                }
+              }
+            else if (interval === 'quarter'){
+              if ($('#quarterInput').val().trim() !== '' &&$('#yearInputQuarter').val().trim() !== '' && $('#frequencyQuarter').val().trim()!=='' && $('#intervalsBackQuarter').val().trim()!=='') {
+                $('#barInputs').show();
+                  if($('#stat').val().trim()!=='' && $('#largest_smallest').val().trim()!=='' && $('#num_results').val().trim()!==''){
+                    $('#submitButton').show();
+                  }
+                  else{
+                    $('#submitButton').hide();
+                  }
+                }
+                else{
+                  $('#barInputs').hide();
+                }
+              }
+            else if (interval === 'month'){
+              if ($('#quarterInput').val().trim() !== '' &&$('#yearInputMonth').val().trim() !== '' && $('#frequencyMonth').val().trim()!=='' && $('#intervalsBackMonth').val().trim()!=='') {
+                $('#barInputs').show();
+                  if($('#stat').val().trim()!=='' && $('#largest_smallest').val().trim()!=='' && $('#num_results').val().trim()!==''){
+                    $('#submitButton').show();
+                  }
+                  else{
+                    $('#submitButton').hide();
+                  }
+                }
+                else{
+                  $('#barInputs').hide();
+                }
+            }
+            else if (interval === 'week'){
+              if ($('#startDateInputWeek').val().trim() !== '' && $('#endDateInputWeek').val().trim() !== '' && $('#startDateInputWeek').val().trim() !== 'dd/mm/yyyy' && $('#endDateInputWeek').val().trim() !== 'dd/mm/yyyy' && $('#frequencyWeek').val().trim()!=='' && $('#intervalsBackWeek').val().trim()!=='') {
+                $('#barInputs').show();
+                  if($('#stat').val().trim()!=='' && $('#largest_smallest').val().trim()!=='' && $('#num_results').val().trim()!==''){
+                    $('#submitButton').show();
+                  }
+                  else{
+                    $('#submitButton').hide();
+                  }
+                }
+                else{
+                  $('#barInputs').hide();
+                }
+            }
+            else if (interval === 'day'){
+              if ($('#startDateInputDay').val().trim() !== '' && $('#endDateInputDay').val().trim() !== '' && $('#startDateInputDay').val().trim() !== 'dd/mm/yyyy'  && $('#endDateInputDay').val().trim() !== 'dd/mm/yyyy'  && $('#frequencyDay').val().trim()!=='' && $('#intervalsBackDay').val().trim()!=='') {
+                $('#barInputs').show();
+                  if($('#stat').val().trim()!=='' && $('#largest_smallest').val().trim()!=='' && $('#num_results').val().trim()!==''){
+                    $('#submitButton').show();
+                  }
+                  else{
+                    $('#submitButton').hide();
+                  }
+                }
+                else{
+                  $('#barInputs').hide();
+                }
+            }
+      else{
+          $('#submitButton').hide()
+          $('#barInputs').hide();
+        }
+      }
+      else{
+          $('#submitButton').hide()
+          $('#barInputs').hide();
+        }
+    }
+
+    $('#submitButton').hide();
+    $('#barInputs').hide();
+
+    // Event listeners for input boxes
+    $('#category,#stat,#largest_smallest,#num_results, #datatype, #interval, #yearInputYear, #yearInputQuarter , #yearInputMonth, #frequencyYear, #frequencyQuarter, #frequencyMonth, #frequencyWeek, #frequencyDay, #intervalsBackYear, #intervalsBackQuarter, #intervalsBackMonth, #intervalsBackWeek, #intervalsBackDay, #quarterInput,#monthInput,#startDateInputDay,#endDateInputDay, #startDateInputWeek, #endDateInputWeek').on('input', function() {
+        toggleSubmitButton();
+    });
+
+
+    /* Functions for showing/hiding loading spinner */
+
+    function showLoadingSpinner() {
+        $('#spinner').show();
+        $('#theImage').empty();
+        }
+
+        // Function to hide loading spinner
+    function hideLoadingSpinner() {
+        $('#spinner').hide();
+    }
+
+    /* Handles submit instead of flask so that image can be populated on the same page, this is where the image is being returned to */
+
+    $('#myForm').submit(function(e){
+        e.preventDefault();
+        showLoadingSpinner();
+        var formData = $(this).serialize();
+        $.ajax({
+            url: '/submit_bar_form',
+            type: 'POST',
+            data: formData,
+            success: function(response){
+              $('#theImage').html(response);
+              hideLoadingSpinner();
+            }
+        });
+    });
+});
+
+$('#myForm').keypress(function(event) {
+    // Check if the pressed key is Enter
+    if (event.keyCode === 13) {
+       // Check if the submit button is visible
+       if ($('#submitButton').is(':visible')) {
+        return true; // Allow form submission
+      } else {
+        // Prevent the default action (form submission)
+        event.preventDefault();
+        return false;
+      }
+    }
+  });
+
+</script>
+    
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    </body>
+</html>
