@@ -11,7 +11,7 @@ This application is supposed to be a SaaS for the user hosted on AWS Elastic Bea
 For future use it is fairly simple to launch on Elastic Beanstalk just do the following. 
 
 1. Clone down Repo
-2. Uncompress CSVs if Compressed
+2. Uncompress CSVs if Compressed (Larger ones are currently compressed, S&P and Russell)
 3. Run update.py as CSVs are not dynamically / automatically updated (May have to set up venv using flask steps below) 
 4. Compress whole repo and upload to Elastic Beanstalk in AWS
 5. May have to configure Loadbalancer
