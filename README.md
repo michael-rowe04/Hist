@@ -53,13 +53,55 @@ Tabs at top bring you to the other screens, each box on homescreen describes the
 
 <img width="1440" alt="Screenshot 2025-07-07 at 10 00 42 PM" src="https://github.com/user-attachments/assets/6a180f4a-3b05-4b38-b754-98ae875d93c0" />
 
+Here we added the volume being plotted underneath as well.
+
 <img width="1440" alt="Screenshot 2025-07-07 at 10 00 55 PM" src="https://github.com/user-attachments/assets/42d3b447-7e15-4a2a-b136-68b5136cb96a" />
 
 ## Historical Analysis
 
-Choose a Ticke
+Choose a Ticker, the data you would like to plot it on, the interval type (days, weeks, months, quarters, years), choose if you want to see the volume plotted below as well.
 
-<img width="1440" alt="Screenshot 2025-07-07 at 10 02 03 PM" src="https://github.com/user-attachments/assets/35785e72-9480-4a61-8aba-6f54f3d2b468" />
+<img width="1440" alt="Screenshot 2025-07-07 at 10 02 53 PM" src="https://github.com/user-attachments/assets/a4c77c79-d7f9-473a-88bb-a5483f73ad82" />
+
+<img width="1436" alt="Screenshot 2025-07-07 at 10 03 14 PM" src="https://github.com/user-attachments/assets/43a1d74d-5c3a-4966-a6fe-36b1034e4407" />
+
+<img width="1439" alt="Screenshot 2025-07-07 at 10 04 21 PM" src="https://github.com/user-attachments/assets/ce59afd0-1ab5-42c1-9143-c4fdbb9e1985" />
+
+As you can see we plotted Nvidia stock over the two weeks around July 4th over the past 5 years. This can be usefull for timing up when to buy stocks. Like seeing if a stock typically does good around Christmas time.
+
+<img width="1440" alt="Screenshot 2025-07-08 at 12 01 27 AM" src="https://github.com/user-attachments/assets/e968d701-e72f-4b11-864f-977e21b26eb4" />
+
+<img width="1440" alt="Screenshot 2025-07-08 at 12 01 43 AM" src="https://github.com/user-attachments/assets/f44a75f3-c0fd-4911-ac17-25a5f5f06836" />
+
+<img width="1440" alt="Screenshot 2025-07-08 at 12 09 19 AM" src="https://github.com/user-attachments/assets/e92945fb-9c4c-42fb-b5d9-bbb830c36a69" />
+
+## Stock Comparison
+
+This next screen has similar inputs but can compare what stocks do the best within a bunch of different indexes. This can help you determine what stock you want to buy and then you can research it more in depth on the previous screen.
+
+<img width="1440" alt="Screenshot 2025-07-08 at 12 09 37 AM" src="https://github.com/user-attachments/assets/ba1db037-0098-4014-b29d-36fe610e3041" />
+
+<img width="1440" alt="Screenshot 2025-07-08 at 12 11 23 AM" src="https://github.com/user-attachments/assets/4ff02eb8-13df-49d7-9e1c-b8fb41cc2f1f" />
+
+Here we can see the Consumer Discretionary Sector from the S&P500 and which stocks moved the most around July 4th time over the past 10 years.
+
+<img width="1440" alt="Screenshot 2025-07-08 at 12 22 48 AM" src="https://github.com/user-attachments/assets/f0d49c9f-0f63-4d18-ab2a-8a9613ab0598" />
+
+
+## Other Screens
+
+Unfortunatly the other screens fall under future work. But you can read about the plan for them on the Homepage!
+
+<img width="1440" alt="Screenshot 2025-07-08 at 12 23 13 AM" src="https://github.com/user-attachments/assets/27fbae71-e35a-4638-86a8-ea5a3f1df7ec" />
+
+
+
+
+
+
+
+
+
 
 
 
