@@ -25,7 +25,7 @@ We can also host this website locally through Flask
 #### Set up venv
 ```
 #In project directory, create venv however you prefer (conda, vscode, python, pip, etc.)
-python3.11 -m venv venvname 
+python3.11 -m venv venvname (python3.11.9)
 
 # Activate venv
 source venvname/bin/activate
