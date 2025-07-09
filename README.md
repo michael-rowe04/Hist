@@ -19,10 +19,6 @@ For future use it is fairly simple to launch on Elastic Beanstalk just do the fo
 Note: Make sure histfinance.com is still owned
 Note: Step 3 is not necessary, but website will be using out of date data otherwise
 
-#### Future Work
-1. Set up Beanstalk / Loadbalancer through IaC such as terraform. Not really necessary as Elastic Beanstalk is almost serverless.
-2. Dynamically update CSVs or retrofit code to directly call API rather than reading CSVs
-
 ### Flask
 We can also host this website locally through Flask
 
@@ -39,6 +35,12 @@ pip install -r requirements.txt
 ```
 #### Run app.py using venv
 Note: May have to adjust systems firewall rules or whatnot if you want to connect from another device
+
+
+#### Future Work
+1. Set up Beanstalk / Loadbalancer through IaC such as terraform. Not really necessary as Elastic Beanstalk is almost serverless.
+2. Dynamically update CSVs or retrofit code to directly call API rather than reading CSVs
+3. Add more categories / indicators to compare on and plot ( not much code changes to do for this)
 
 ## Website!!
 
