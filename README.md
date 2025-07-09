@@ -44,4 +44,22 @@ Note: May have to adjust systems firewall rules or whatnot if you want to connec
 
 ## Website!!
 
+### Homepage
+
+Tabs at top bring you to the other screens, each box on homescreen describes the application of the screen
+<img width="1440" alt="Screenshot 2025-07-07 at 10 00 11 PM" src="https://github.com/user-attachments/assets/0911ad8c-3f6a-44fd-98ae-339ed1e7dcf3" />
+
+<img width="1440" alt="Screenshot 2025-07-07 at 10 00 27 PM" src="https://github.com/user-attachments/assets/ee010a4c-f91d-47c9-b37b-e963cf6fbc21" />
+
+<img width="1440" alt="Screenshot 2025-07-07 at 10 00 42 PM" src="https://github.com/user-attachments/assets/6a180f4a-3b05-4b38-b754-98ae875d93c0" />
+
+<img width="1440" alt="Screenshot 2025-07-07 at 10 00 55 PM" src="https://github.com/user-attachments/assets/42d3b447-7e15-4a2a-b136-68b5136cb96a" />
+
+## Historical Analysis
+
+Choose a Ticke
+
+<img width="1440" alt="Screenshot 2025-07-07 at 10 02 03 PM" src="https://github.com/user-attachments/assets/35785e72-9480-4a61-8aba-6f54f3d2b468" />
+
+
 
