@@ -83,7 +83,7 @@ This next screen has similar inputs but can compare what stocks do the best with
 
 <img width="1440" alt="Screenshot 2025-07-08 at 12 11 23 AM" src="https://github.com/user-attachments/assets/4ff02eb8-13df-49d7-9e1c-b8fb41cc2f1f" />
 
-Here we can see the Consumer Discretionary Sector from the S&P500 and which stocks moved the most around July 4th time over the past 10 years.
+Here we can see the top 10 movers from the Consumer Discretionary Sector of the S&P500 around July 4th time over the past 5 years.
 
 <img width="1440" alt="Screenshot 2025-07-08 at 12 22 48 AM" src="https://github.com/user-attachments/assets/f0d49c9f-0f63-4d18-ab2a-8a9613ab0598" />
 
