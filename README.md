@@ -3,6 +3,9 @@
 ## Overview
 Hist is a website which allows you to see how Indexes and Stocks performed over very specific time frames which you can pick.
 
+### Technologies 
+html, javascript, css, AWS Elastic Beanstalk, AWS Load Balancers, Flask, matplotlib, numpy, pandas, yfinance
+
 ## How to Launch
 
 ### AWS Elasticbean Stalk
